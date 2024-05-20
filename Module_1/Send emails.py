@@ -1,4 +1,7 @@
 import smtplib
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 my_name = input("Введите ваше имя: ")
 friend_name = input("Введите имя друга,которому хотите отправить письмо: ")
@@ -39,6 +42,10 @@ letter = letter.replace("%website%", website)
 letter = letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-server.login('andreybychenkow032', 'jgvienolxtgdjksh')
-server.sendmail("andreybychenkow032@yandex.ru", "andreybychenkow032@yandex.ru", letter)
+
+my_var_value = os.getenv('EM_LOGIN')
+my_var_password = os.getenv('EM_PASSWORD')
+server.login(my_var_value, my_var_password)
+
+server.sendmail(my_mail, recipient_email, letter)
 server.quit()
