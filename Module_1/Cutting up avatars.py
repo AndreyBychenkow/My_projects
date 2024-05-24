@@ -1,6 +1,9 @@
 from PIL import Image
+import os
 
-image_path = "D:\\Фото\\Новая папка\\monro.jpg"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(script_dir, "monro.jpg")
+
 image = Image.open(image_path)
 rgb_image = image.convert("RGB")
 
