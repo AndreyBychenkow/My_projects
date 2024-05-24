@@ -1,5 +1,6 @@
-from PIL import Image
 import os
+
+from PIL import Image
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 image_path = os.path.join(script_dir, "monro.jpg")
