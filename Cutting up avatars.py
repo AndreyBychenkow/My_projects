@@ -27,9 +27,6 @@ green_image.paste(green)
 crop_width = 50
 green_cropped = green_image.crop((crop_width, 0, rgb_image.width - crop_width, rgb_image.height)).resize(rgb_image.size)
 
-print(f"Ширина зеленого — {green_cropped.width}\nВысота зеленого — {green_cropped.height}\n"
-      f"Ширина красного — {blended_red.width}\nВысота красного — {blended_red.height}")
-
 final_image = Image.merge("RGB", (blended_red, green_cropped, blended_blue))
 
 final_image.save("final_image.jpg")
